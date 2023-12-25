@@ -19,6 +19,7 @@ import (
 	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/ecs"
 	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/eip"
 	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/evs"
+	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/iam"
 	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/ims"
 	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/lb"
 	"github.com/huaweicloud/terraform-provider-huaweicloud/huaweicloud/services/nat"
@@ -314,6 +315,14 @@ func Provider() *schema.Provider {
 
 			"hcso_evs_volumes": evs.DataSourceEvsVolumesV2(),
 
+			"hcso_identity_permissions": iam.DataSourceIdentityPermissions(),
+			"hcso_identity_role":        iam.DataSourceIdentityRole(),
+			"hcso_identity_custom_role": iam.DataSourceIdentityCustomRole(),
+			"hcso_identity_group":       iam.DataSourceIdentityGroup(),
+			"hcso_identity_projects":    iam.DataSourceIdentityProjects(),
+			"hcso_identity_users":       iam.DataSourceIdentityUsers(),
+			"hcso_identity_agencies":    iam.DataSourceIdentityAgencies(),
+
 			"hcso_images_image":  ims.DataSourceImagesImageV2(),
 			"hcso_images_images": ims.DataSourceImagesImages(),
 
@@ -383,6 +392,22 @@ func Provider() *schema.Provider {
 			"hcso_vpc_eip":                  eip.ResourceVpcEIPV1(),
 			"hcso_vpc_eip_associate":        eip.ResourceEIPAssociate(),
 			"hcso_networking_eip_associate": eip.ResourceEIPAssociate(),
+
+			"hcso_identity_access_key":            iam.ResourceIdentityKey(),
+			"hcso_identity_acl":                   iam.ResourceIdentityACL(),
+			"hcso_identity_agency":                iam.ResourceIAMAgencyV3(),
+			"hcso_identity_group":                 iam.ResourceIdentityGroup(),
+			"hcso_identity_group_membership":      iam.ResourceIdentityGroupMembership(),
+			"hcso_identity_group_role_assignment": iam.ResourceIdentityGroupRoleAssignment(),
+			"hcso_identity_project":               iam.ResourceIdentityProject(),
+			"hcso_identity_role":                  iam.ResourceIdentityRole(),
+			"hcso_identity_role_assignment":       iam.ResourceIdentityGroupRoleAssignment(),
+			"hcso_identity_user":                  iam.ResourceIdentityUser(),
+			"hcso_identity_user_role_assignment":  iam.ResourceIdentityUserRoleAssignment(),
+			"hcso_identity_provider":              iam.ResourceIdentityProvider(),
+			"hcso_identity_password_policy":       iam.ResourceIdentityPasswordPolicy(),
+			"hcso_identity_protection_policy":     iam.ResourceIdentityProtectionPolicy(),
+			"hcso_identity_provider_conversion":   iam.ResourceIAMProviderConversion(),
 
 			"hcso_tms_tags": tms.ResourceTmsTag(),
 		},
